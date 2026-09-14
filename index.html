@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Portfolio｜作品集</title>
+
+  <style>
+
+    :root {
+      --bg: #ffffff;
+      --text: #222222;
+      --muted: #6b7280;
+      --line: #e8e8e8;
+      --soft: #f7f7f7;
+      --accent: #536674;
+      --max-width: 1050px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+
+      font-family:
+        "Noto Sans TC",
+        "Microsoft JhengHei",
+        Arial,
+        sans-serif;
+
+      line-height: 1.75;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(calc(100% - 40px), var(--max-width));
+      margin: 0 auto;
+    }
+
+
+    /* =========================
+       導覽列
+       ========================= */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+
+      background: rgba(255, 255, 255, 0.95);
+
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      min-height: 68px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 30px;
+    }
+
+    .brand {
+      font-weight: bold;
+      letter-spacing: 0.05em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+
+    /* =========================
+       共用
+       ========================= */
+
+    section {
+      padding: 90px 0;
+
+      border-bottom: 1px solid var(--line);
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      margin-bottom: 24px;
+
+      font-size: clamp(42px, 7vw, 72px);
+
+      line-height: 1.15;
+
+      letter-spacing: -0.04em;
+    }
+
+    h2 {
+      margin-bottom: 14px;
+      font-size: 32px;
+    }
+
+    h3 {
+      margin-bottom: 10px;
+      font-size: 19px;
+    }
+
+    .section-head {
+      display: grid;
+
+      grid-template-columns: 180px 1fr;
+
+      gap: 50px;
+
+      margin-bottom: 45px;
+    }
+
+    .section-label {
+      color: var(--muted);
+
+      font-size: 13px;
+
+      font-weight: bold;
+
+      letter-spacing: 0.1em;
+
+      text-transform: uppercase;
+    }
+
+    .section-copy {
+      max-width: 680px;
+
+      color: var(--muted);
+    }
+
+
+    /* =========================
+       首頁
+       ========================= */
+
+    .hero {
+      min-height: 75vh;
+
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-content {
+      max-width: 760px;
+    }
+
+    .eyebrow {
+      margin-bottom: 16px;
+
+      color: var(--accent);
+
+      font-size: 14px;
+
+      font-weight: bold;
+
+      letter-spacing: 0.12em;
+    }
+
+    .lead {
+      max-width: 680px;
+
+      margin-bottom: 32px;
+
+      color: var(--muted);
+
+      font-size: 17px;
+    }
+
+    .buttons {
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 12px;
+    }
+
+    .button {
+      display: inline-flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      min-height: 44px;
+
+      padding: 0 18px;
+
+      border: 1px solid var(--text);
+
+      border-radius: 7px;
+
+      font-size: 14px;
+
+      transition: 0.2s;
+    }
+
+    .button.primary {
+      background: var(--text);
+
+      color: white;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+
+    /* =========================
+       作品
+       ========================= */
+
+    .project-grid {
+      display: grid;
+
+      grid-template-columns: repeat(2, 1fr);
+
+      gap: 22px;
+    }
+
+    .project-link {
+      display: block;
+
+      color: inherit;
+
+      text-decoration: none;
+    }
+
+    .project-card {
+      height: 100%;
+
+      overflow: hidden;
+
+      border: 1px solid var(--line);
+
+      border-radius: 12px;
+
+      background: white;
+
+      transition: 0.2s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+
+      border-color: #cccccc;
+
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    .project-image {
+      aspect-ratio: 16 / 9;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      background: var(--soft);
+
+      color: #999999;
+
+      font-size: 14px;
+    }
+
+    .project-body {
+      padding: 22px;
+    }
+
+    .project-type {
+      margin-bottom: 9px;
+
+      color: var(--accent);
+
+      font-size: 13px;
+
+      font-weight: bold;
+    }
+
+    .project-body p {
+      margin-bottom: 16px;
+
+      color: var(--muted);
+
+      font-size: 14px;
+    }
+
+    .tags {
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 7px;
+    }
+
+    .tag {
+      padding: 4px 9px;
+
+      border-radius: 100px;
+
+      background: var(--soft);
+
+      color: #666666;
+
+      font-size: 12px;
+    }
+
+    .view-project {
+      display: inline-block;
+
+      margin-top: 18px;
+
+      color: var(--text);
+
+      font-size: 13px;
+
+      font-weight: bold;
+    }
+
+
+    /* =========================
+       能力
+       ========================= */
+
+    .skills {
+      display: grid;
+
+      grid-template-columns: repeat(3, 1fr);
+
+      gap: 20px;
+    }
+
+    .skill {
+      padding: 22px 0;
+
+      border-top: 1px solid var(--text);
+    }
+
+    .skill p {
+      color: var(--muted);
+
+      font-size: 14px;
+    }
+
+
+    /* =========================
+       關於我
+       ========================= */
+
+    .about {
+      display: grid;
+
+      grid-template-columns: 1.1fr 0.9fr;
+
+      gap: 60px;
+    }
+
+    .about p {
+      color: var(--muted);
+    }
+
+    .note {
+      padding: 24px;
+
+      border-radius: 10px;
+
+      background: var(--soft);
+
+      color: var(--muted);
+    }
+
+    .note strong {
+      color: var(--text);
+    }
+
+
+    /* =========================
+       聯絡
+       ========================= */
+
+    .contact-links {
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 20px;
+
+      margin-top: 22px;
+    }
+
+    .contact-links a {
+      border-bottom: 1px solid #cccccc;
+    }
+
+
+    /* =========================
+       頁尾
+       ========================= */
+
+    footer {
+      padding: 35px 0 50px;
+
+      color: var(--muted);
+
+      font-size: 13px;
+    }
+
+
+    /* =========================
+       手機版
+       ========================= */
+
+    @media (max-width: 750px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      section {
+        padding: 65px 0;
+      }
+
+      .hero {
+        min-height: auto;
+
+        padding-top: 90px;
+
+        padding-bottom: 90px;
+      }
+
+      .section-head,
+      .about {
+        grid-template-columns: 1fr;
+
+        gap: 15px;
+      }
+
+      .project-grid,
+      .skills {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+  <!-- =========================
+       導覽列
+       ========================= -->
+
+  <header>
+
+    <div class="container nav">
+
+      <a href="#home" class="brand">
+        PORTFOLIO
+      </a>
+
+      <nav class="nav-links">
+
+        <a href="#work">
+          作品
+        </a>
+
+        <a href="#skills">
+          能力
+        </a>
+
+        <a href="#about">
+          關於我
+        </a>
+
+        <a href="#contact">
+          聯絡
+        </a>
+
+      </nav>
+
+    </div>
+
+  </header>
+
+
+
+  <main>
+
+
+    <!-- =========================
+         首頁
+         ========================= -->
+
+    <section class="hero" id="home">
+
+      <div class="container">
+
+        <div class="hero-content">
+
+          <div class="eyebrow">
+            EDUCATION × DIGITAL LEARNING
+          </div>
+
+          <h1>
+            把學習內容，<br>
+            做成更好的體驗。
+          </h1>
+
+          <p class="lead">
+            教育相關科系學生，目前關注數位教材、
+            遊戲化學習、線上學習與互動式內容設計。
+            這裡整理我的課程作品、教育遊戲與持續累積中的數位專案。
+          </p>
+
+          <div class="buttons">
+
+            <a href="#work" class="button primary">
+              查看作品
+            </a>
+
+            <a href="#about" class="button">
+              關於我
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         作品
+         ========================= -->
+
+    <section id="work">
+
+      <div class="container">
+
+        <div class="section-head">
+
+          <div class="section-label">
+            Selected Work
+          </div>
+
+          <div>
+
+            <h2>
+              精選作品
+            </h2>
+
+            <p class="section-copy">
+              收錄數位教材、教育遊戲、互動原型、
+              數位科技與教育相關專案。
+              點擊作品，可以查看更完整的內容。
+            </p>
+
+          </div>
+
+        </div>
+
+
+
+        <div class="project-grid">
+
+
+          <!-- =========================
+               作品 1
+               地震防災遊戲
+               ========================= -->
+
+          <a href="project.html" class="project-link">
+
+            <article class="project-card">
+
+              <div class="project-image">
+                作品圖片／遊戲截圖
+              </div>
+
+              <div class="project-body">
+
+                <div class="project-type">
+                  教育遊戲 · 國小中年級
+                </div>
+
+                <h3>
+                  地震防災遊戲化教材
+                </h3>
+
+                <p>
+                  透過情境任務，引導學生認識地震發生時的判斷、
+                  避難行動與緊急避難包內容，
+                  將防災知識轉換成互動式學習體驗。
+                </p>
+
+                <div class="tags">
+
+                  <span class="tag">
+                    遊戲化學習
+                  </span>
+
+                  <span class="tag">
+                    教材設計
+                  </span>
+
+                  <span class="tag">
+                    國小教育
+                  </span>
+
+                </div>
+
+                <span class="view-project">
+                  查看作品 →
+                </span>
+
+              </div>
+
+            </article>
+
+          </a>
+
+
+
+          <!-- =========================
+               作品 2
+               數位學習小遊戲
+               ========================= -->
+
+          <article class="project-card">
+
+            <div class="project-image">
+              Construct 3 遊戲畫面
+            </div>
+
+            <div class="project-body">
+
+              <div class="project-type">
+                Prototype · Construct 3
+              </div>
+
+              <h3>
+                數位學習小遊戲
+              </h3>
+
+              <p>
+                使用 Construct 3 製作互動式學習遊戲，
+                將學習目標轉換為操作、規則、回饋與關卡，
+                嘗試讓知識內容透過遊戲機制呈現。
+              </p>
+
+              <div class="tags">
+
+                <span class="tag">
+                  Construct 3
+                </span>
+
+                <span class="tag">
+                  互動設計
+                </span>
+
+                <span class="tag">
+                  Prototype
+                </span>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+
+          <!-- =========================
+               作品 3
+               108課綱研究
+               ========================= -->
+
+          <article class="project-card">
+
+            <div class="project-image">
+              研究／專案圖片
+            </div>
+
+            <div class="project-body">
+
+              <div class="project-type">
+                Research · Education
+              </div>
+
+              <h3>
+                108課綱教師理解與教學實踐研究
+              </h3>
+
+              <p>
+                透過質性訪談了解國小教師如何理解108課綱理念，
+                並探討理念如何落實於教學活動、
+                評量方式與實際教學情境。
+              </p>
+
+              <div class="tags">
+
+                <span class="tag">
+                  質性研究
+                </span>
+
+                <span class="tag">
+                  訪談
+                </span>
+
+                <span class="tag">
+                  教育研究
+                </span>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+
+          <!-- =========================
+               作品 4
+               數位科技概論
+               可以點進去
+               ========================= -->
+
+          <a href="digital-technology/index.html" class="project-link">
+
+            <article class="project-card">
+
+              <div class="project-image">
+                數位科技概論作品
+              </div>
+
+              <div class="project-body">
+
+                <div class="project-type">
+                  Course Work · Digital Technology
+                </div>
+
+                <h3>
+                  數位科技概論
+                </h3>
+
+                <p>
+                  整理數位科技概論課程中的學習成果與實作作品，
+                  包含數位工具、科技應用與相關課程實作。
+                </p>
+
+                <div class="tags">
+
+                  <span class="tag">
+                    數位科技
+                  </span>
+
+                  <span class="tag">
+                    科技與媒材
+                  </span>
+
+                  <span class="tag">
+                    課程作品
+                  </span>
+
+                </div>
+
+                <span class="view-project">
+                  查看作品 →
+                </span>
+
+              </div>
+
+            </article>
+
+          </a>
+
+
+
+          <!-- =========================
+               作品 5
+               預留
+               ========================= -->
+
+          <article class="project-card">
+
+            <div class="project-image">
+              下一個作品
+            </div>
+
+            <div class="project-body">
+
+              <div class="project-type">
+                Upcoming Project
+              </div>
+
+              <h3>
+                持續製作中
+              </h3>
+
+              <p>
+                這裡可以放之後完成的數位教材、
+                教育遊戲、線上學習平台概念，
+                或其他互動式學習作品。
+              </p>
+
+              <div class="tags">
+
+                <span class="tag">
+                  數位學習
+                </span>
+
+                <span class="tag">
+                  Coming Soon
+                </span>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         能力
+         ========================= -->
+
+    <section id="skills">
+
+      <div class="container">
+
+        <div class="section-head">
+
+          <div class="section-label">
+            Skills
+          </div>
+
+          <div>
+
+            <h2>
+              能力與工具
+            </h2>
+
+            <p class="section-copy">
+              目前主要累積教育內容設計、數位教材、
+              遊戲化學習與專案企劃相關能力。
+            </p>
+
+          </div>
+
+        </div>
+
+
+
+        <div class="skills">
+
+
+          <div class="skill">
+
+            <h3>
+              教育內容設計
+            </h3>
+
+            <p>
+              學習目標拆解、教材內容整理、
+              教學活動與學習任務設計。
+            </p>
+
+          </div>
+
+
+
+          <div class="skill">
+
+            <h3>
+              數位與遊戲化
+            </h3>
+
+            <p>
+              Construct 3、互動原型、
+              遊戲規則與回饋設計、數位教材企劃。
+            </p>
+
+          </div>
+
+
+
+          <div class="skill">
+
+            <h3>
+              研究與企劃
+            </h3>
+
+            <p>
+              訪談規劃、質性資料整理、
+              企劃撰寫、流程梳理與專案規劃。
+            </p>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         關於我
+         ========================= -->
+
+    <section id="about">
+
+      <div class="container">
+
+        <div class="section-head">
+
+          <div class="section-label">
+            About
+          </div>
+
+          <div>
+
+            <h2>
+              關於我
+            </h2>
+
+          </div>
+
+        </div>
+
+
+
+        <div class="about">
+
+
+          <div>
+
+            <p>
+              我目前就讀教育相關科系，
+              對傳統教學以外的學習形式特別有興趣，
+              包含數位教材、線上學習平台、
+              遊戲化學習與互動式內容。
+            </p>
+
+            <p>
+              我喜歡將複雜的內容整理成清楚的結構，
+              並從學習者實際如何理解、操作與獲得回饋的角度思考。
+              現階段希望持續累積教育科技與數位內容相關作品。
+            </p>
+
+          </div>
+
+
+
+          <div class="note">
+
+            <strong>
+              目前關注
+            </strong>
+
+            <br>
+
+            教育科技／數位教材／遊戲化學習／學習體驗設計
+
+
+            <br><br>
+
+
+            <strong>
+              持續學習
+            </strong>
+
+            <br>
+
+            HTML、CSS、JavaScript、Construct 3
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         聯絡
+         ========================= -->
+
+    <section id="contact">
+
+      <div class="container">
+
+        <div class="section-head">
+
+          <div class="section-label">
+            Contact
+          </div>
+
+          <div>
+
+            <h2>
+              聯絡方式
+            </h2>
+
+            <p class="section-copy">
+              歡迎透過以下方式聯絡。
+            </p>
+
+            <div class="contact-links">
+
+              <a href="mailto:yourmail@example.com">
+                Email
+              </a>
+
+              <a href="#">
+                GitHub
+              </a>
+
+              <a href="#">
+                其他作品平台
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+
+  <!-- =========================
+       頁尾
+       ========================= -->
+
+  <footer>
+
+    <div class="container">
+      Portfolio · 2026
+    </div>
+
+  </footer>
+
+
+</body>
+
+</html>
